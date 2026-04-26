@@ -1,9 +1,4 @@
 User-agent: *
 Allow: /
 
-# Bloquear panel admin
-Disallow: /admin/
-Disallow: /admin
-
-# Sitemap
-Sitemap: https://grupoempresarialatenas.com/sitemap-index.xml
+Sitemap: https://topseguridadcolombia.com/sitemap-index.xml

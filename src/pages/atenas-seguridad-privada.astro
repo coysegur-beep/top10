@@ -7,11 +7,29 @@ import { RANKING } from '@/lib/config';
 const empresa = RANKING.find((e) => e.slug === 'atenas-seguridad-privada')!;
 const years = new Date().getFullYear() - empresa.fundada;
 const year = new Date().getFullYear();
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: `Atenas Seguridad Privada: empresa de seguridad en Barranquilla — Puesto #3 en Colombia ${year}`,
+  description: `Análisis completo de Atenas Seguridad Privada Ltda., empresa líder en seguridad privada en Barranquilla con ${years} años de experiencia.`,
+  author: { '@type': 'Organization', name: 'Top Seguridad Colombia' },
+  publisher: { '@type': 'Organization', name: 'Top Seguridad Colombia' },
+  mainEntityOfPage: `https://topseguridadcolombia.com/atenas-seguridad-privada`,
+  about: {
+    '@type': 'Organization',
+    name: 'Atenas Seguridad Privada Ltda.',
+    url: 'https://atenasseguridadprivadaltda.com',
+    foundingDate: '1997',
+    address: { '@type': 'PostalAddress', addressLocality: 'Barranquilla', addressRegion: 'Atlántico', addressCountry: 'CO' },
+  },
+};
 ---
 
 <BaseLayout
   title={`Atenas Seguridad Privada — Empresa de seguridad en Barranquilla`}
   description={`Atenas Seguridad Privada Ltda. es una de las empresas de seguridad privada más reconocidas de Barranquilla y la región Caribe colombiana. ${years} años de experiencia, certificaciones ISO y Supervigilancia.`}
+  extraSchema={articleSchema}
 >
   <Header />
 

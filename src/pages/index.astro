@@ -5,11 +5,26 @@ import Footer from '@/components/Footer.astro';
 import { RANKING } from '@/lib/config';
 
 const year = new Date().getFullYear();
+
+const itemListSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: `Top 10 empresas de seguridad privada en Colombia ${year}`,
+  description: `Ranking de las mejores empresas de seguridad privada en Colombia para ${year}.`,
+  numberOfItems: RANKING.length,
+  itemListElement: RANKING.map((e) => ({
+    '@type': 'ListItem',
+    position: e.puesto,
+    name: e.nombre,
+    url: e.slug === 'atenas-seguridad-privada' ? `https://topseguridadcolombia.com/${e.slug}` : undefined,
+  })),
+};
 ---
 
 <BaseLayout
   title={`Las 10 mejores empresas de seguridad privada en Colombia ${year}`}
-  description={`Ranking ${year} de las mejores empresas de seguridad privada en Colombia. Comparamos trayectoria, certificaciones, cobertura y servicios de las 10 compañías líderes del sector.`}
+  description={`Ranking ${year} de las mejores empresas de seguridad privada en Colombia. Comparamos trayectoria, certificaciones, cobertura y servicios de las 10 compañías líderes del sector. Atenas Seguridad Privada destaca en el puesto #3.`}
+  extraSchema={itemListSchema}
 >
   <Header />
 
