@@ -1,0 +1,138 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
+import { RANKING } from '@/lib/config';
+
+const year = new Date().getFullYear();
+---
+
+<BaseLayout
+  title={`Las 10 mejores empresas de seguridad privada en Colombia ${year}`}
+  description={`Ranking ${year} de las mejores empresas de seguridad privada en Colombia. Comparamos trayectoria, certificaciones, cobertura y servicios de las 10 compañías líderes del sector.`}
+>
+  <Header />
+
+  <!-- HERO -->
+  <section class="relative bg-gradient-to-br from-brand-navy-deep via-brand-navy to-[#0a2960] text-white overflow-hidden" style="padding: 140px 0 100px;">
+    <div class="absolute inset-0 pointer-events-none" style="background-image: radial-gradient(circle at 80% 20%, rgba(244,161,0,0.08) 0%, transparent 40%);"></div>
+    <div class="max-w-container mx-auto px-6 relative z-10">
+      <div class="max-w-[800px]">
+        <div class="inline-flex items-center gap-2.5 bg-brand-gold/10 border border-brand-gold/30 text-brand-gold px-4 py-2 rounded-full text-[13px] font-medium uppercase tracking-[0.05em] mb-8">
+          <span class="w-1.5 h-1.5 bg-brand-gold rounded-full animate-pulse"></span>
+          Ranking actualizado {year}
+        </div>
+        <h1 class="font-serif font-normal leading-[1.05] tracking-[-0.02em] mb-7" style="font-size: clamp(38px, 5vw, 72px);">
+          Las <span class="italic text-brand-gold">10 mejores</span> empresas de seguridad privada en Colombia
+        </h1>
+        <p class="text-[19px] leading-[1.6] text-white/75 max-w-[620px]">
+          Análisis comparativo de las compañías de seguridad más destacadas del país por trayectoria, certificaciones, tecnología y cobertura regional.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTRO SEO -->
+  <section class="py-16 border-b border-text/[0.08]">
+    <div class="max-w-container mx-auto px-6">
+      <div class="max-w-[820px] mx-auto">
+        <h2 class="font-serif text-brand-navy text-[28px] mb-5 leading-[1.2]">¿Cómo elegir la mejor empresa de seguridad privada en Colombia?</h2>
+        <p class="text-text-muted text-[16.5px] leading-[1.75] mb-4">
+          Colombia cuenta con más de 800 empresas de vigilancia y seguridad privada registradas ante la <strong>Superintendencia de Vigilancia y Seguridad Privada</strong>. Sin embargo, no todas ofrecen el mismo nivel de profesionalismo, tecnología y respaldo normativo. Elegir la compañía correcta puede marcar la diferencia entre una operación segura y una vulnerabilidad costosa.
+        </p>
+        <p class="text-text-muted text-[16.5px] leading-[1.75] mb-4">
+          Para elaborar este ranking evaluamos criterios como <strong>años de experiencia</strong>, <strong>certificaciones vigentes</strong> (ISO 9001, ISO 14001, BASC, RUC), <strong>cobertura geográfica</strong>, <strong>capacidad tecnológica</strong> y <strong>reputación en el mercado</strong>. El resultado es una guía objetiva para empresas, conjuntos residenciales y personas que buscan protección confiable.
+        </p>
+        <p class="text-text-muted text-[16.5px] leading-[1.75]">
+          Desde gigantes nacionales con décadas de operación hasta empresas regionales con profundo conocimiento del territorio, cada compañía en este listado ha demostrado excelencia en su segmento. A continuación, el <strong>top 10 de empresas de seguridad privada en Colombia para {year}</strong>.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- RANKING -->
+  <section id="ranking" class="py-20">
+    <div class="max-w-container mx-auto px-6">
+      <div class="text-center mb-16">
+        <p class="text-[13px] text-brand-gold uppercase tracking-[0.08em] font-medium mb-3">Clasificación {year}</p>
+        <h2 class="font-serif font-normal text-brand-navy" style="font-size: clamp(32px, 4vw, 50px); line-height: 1.1;">
+          Top 10 — Empresas de <span class="italic text-brand-blue">seguridad privada</span>
+        </h2>
+      </div>
+
+      <div class="grid gap-6 max-w-[960px] mx-auto">
+        {RANKING.map((empresa) => {
+          const years = new Date().getFullYear() - empresa.fundada;
+          const isAtenas = empresa.slug === 'atenas-seguridad-privada';
+          return (
+            <a
+              href={isAtenas ? `/${empresa.slug}` : undefined}
+              class:list={[
+                "group grid md:grid-cols-[80px_1fr] gap-6 p-8 rounded-md border transition-all duration-300",
+                isAtenas
+                  ? "bg-brand-gold/[0.04] border-brand-gold/40 hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(10,31,77,0.1)] cursor-pointer"
+                  : "bg-white border-text/[0.08]",
+              ]}
+            >
+              <div class:list={[
+                "w-16 h-16 md:w-20 md:h-20 rounded-md flex items-center justify-center font-serif font-medium text-[32px]",
+                isAtenas ? "bg-brand-gold text-white" : "bg-brand-navy/5 text-brand-navy",
+              ]}>
+                {empresa.puesto}
+              </div>
+              <div>
+                <div class="flex flex-wrap items-center gap-3 mb-2">
+                  <h3 class:list={[
+                    "font-serif font-medium text-[22px] tracking-[-0.01em]",
+                    isAtenas ? "text-brand-navy" : "text-brand-navy",
+                  ]}>
+                    {empresa.nombre}
+                  </h3>
+                  {isAtenas && (
+                    <span class="text-[11px] font-semibold uppercase tracking-[0.05em] bg-brand-gold/20 text-brand-gold px-2.5 py-1 rounded-full">Destacada</span>
+                  )}
+                </div>
+                <p class="text-[13px] text-text-light mb-3">{empresa.ciudad} · Fundada en {empresa.fundada} · {years} años · {empresa.cobertura}</p>
+                <p class="text-text-muted text-[15px] leading-[1.7] mb-4">{empresa.resumen}</p>
+                <div class="flex flex-wrap gap-2 mb-3">
+                  {empresa.certificaciones.map((cert) => (
+                    <span class="text-[11px] font-medium uppercase tracking-[0.04em] border border-text/10 text-text-muted px-2.5 py-1 rounded">{cert}</span>
+                  ))}
+                </div>
+                <div class="flex flex-wrap gap-x-4 gap-y-1 text-[13px] text-text-muted">
+                  {empresa.fortalezas.map((f) => (
+                    <span class="flex items-center gap-1.5">
+                      <span class="w-1 h-1 bg-brand-gold rounded-full"></span>{f}
+                    </span>
+                  ))}
+                </div>
+                {isAtenas && (
+                  <p class="mt-4 text-brand-blue text-[14px] font-semibold inline-flex items-center gap-2 group-hover:gap-3.5 transition-all">
+                    Ver perfil completo
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                  </p>
+                )}
+              </div>
+            </a>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-gradient-to-br from-brand-gold to-[#d68900] text-brand-navy-deep text-center" style="padding: 80px 0;">
+    <div class="max-w-container mx-auto px-6">
+      <h2 class="font-serif font-normal text-[36px] mb-4">¿Buscas seguridad privada para tu empresa?</h2>
+      <p class="text-[18px] max-w-[560px] mx-auto mb-8 leading-[1.6]" style="color: rgba(10,31,77,0.8);">
+        Compara las mejores opciones y elige la compañía que se ajuste a tus necesidades de protección.
+      </p>
+      <a href="/#ranking" class="inline-flex items-center gap-2 bg-brand-navy-deep text-white px-8 py-4 rounded-md font-semibold text-[15px] hover:bg-brand-navy transition-colors">
+        Ver el ranking completo
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>

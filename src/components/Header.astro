@@ -1,0 +1,16 @@
+---
+import { SITE, NAV_LINKS } from '@/lib/config';
+---
+
+<header class="fixed top-0 inset-x-0 z-50 bg-brand-navy/95 backdrop-blur-md border-b border-white/10">
+  <div class="max-w-container mx-auto px-6 flex items-center justify-between h-16">
+    <a href="/" class="font-serif text-xl text-white font-medium tracking-tight">
+      Top<span class="text-brand-gold">Seguridad</span>
+    </a>
+    <nav class="hidden md:flex items-center gap-8">
+      {NAV_LINKS.map((link) => (
+        <a href={link.href} class="text-sm text-white/80 hover:text-brand-gold transition-colors">{link.label}</a>
+      ))}
+    </nav>
+  </div>
+</header>

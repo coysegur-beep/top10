@@ -1,0 +1,21 @@
+{
+  "name": "Atenas Seguridad Privada Ltda.",
+  "short_name": "Atenas",
+  "description": "Empresa de seguridad privada con 27 años de experiencia en Barranquilla.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FAFAF7",
+  "theme_color": "#0A1F4D",
+  "icons": [
+    {
+      "src": "/img/favicon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/img/favicon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

@@ -1,0 +1,156 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
+import { RANKING } from '@/lib/config';
+
+const empresa = RANKING.find((e) => e.slug === 'atenas-seguridad-privada')!;
+const years = new Date().getFullYear() - empresa.fundada;
+const year = new Date().getFullYear();
+---
+
+<BaseLayout
+  title={`Atenas Seguridad Privada — Empresa de seguridad en Barranquilla`}
+  description={`Atenas Seguridad Privada Ltda. es una de las empresas de seguridad privada más reconocidas de Barranquilla y la región Caribe colombiana. ${years} años de experiencia, certificaciones ISO y Supervigilancia.`}
+>
+  <Header />
+
+  <!-- HERO -->
+  <section class="relative bg-gradient-to-br from-brand-navy-deep via-brand-navy to-[#0a2960] text-white overflow-hidden" style="padding: 140px 0 80px;">
+    <div class="absolute inset-0 pointer-events-none" style="background-image: radial-gradient(circle at 70% 30%, rgba(244,161,0,0.08) 0%, transparent 40%);"></div>
+    <div class="max-w-container mx-auto px-6 relative z-10">
+      <a href="/" class="inline-flex items-center gap-2 text-[13px] text-white/60 hover:text-brand-gold transition-colors mb-8">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        Volver al ranking
+      </a>
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-16 h-16 bg-brand-gold rounded-md flex items-center justify-center font-serif font-medium text-[28px] text-white">{empresa.puesto}</div>
+        <div>
+          <p class="text-[13px] text-brand-gold uppercase tracking-[0.08em] font-medium">Puesto #{empresa.puesto} en Colombia · {year}</p>
+          <h1 class="font-serif font-normal text-[42px] leading-[1.1] tracking-[-0.02em]">{empresa.nombre}</h1>
+        </div>
+      </div>
+      <p class="text-[13px] text-white/50">{empresa.ciudad} · Fundada en {empresa.fundada} · {years} años · {empresa.cobertura}</p>
+    </div>
+  </section>
+
+  <!-- CONTENIDO -->
+  <article class="py-16">
+    <div class="max-w-[820px] mx-auto px-6">
+
+      <div class="prose prose-lg max-w-none text-text-muted text-[16.5px] leading-[1.8]">
+
+        <h2 class="font-serif text-brand-navy text-[28px] mt-0 mb-4 leading-[1.2]">Atenas Seguridad Privada: liderazgo en seguridad en el Caribe colombiano</h2>
+
+        <p>
+          <strong>Atenas Seguridad Privada Ltda.</strong> es una empresa de seguridad privada con sede en <strong>Barranquilla, Atlántico</strong>, que lleva <strong>{years} años</strong> operando de forma ininterrumpida en la región Caribe de Colombia. Fundada en {empresa.fundada}, se ha consolidado como una de las compañías de vigilancia y protección más confiables del norte del país, atendiendo a empresas, conjuntos residenciales, propiedad horizontal y personas naturales que requieren servicios de seguridad profesional.
+        </p>
+
+        <p>
+          La compañía opera bajo la supervisión de la <strong>Superintendencia de Vigilancia y Seguridad Privada</strong> y cuenta con todas las licencias y permisos vigentes para prestar servicios de vigilancia fija, vigilancia móvil, escoltas, medios tecnológicos y estudios de seguridad en los departamentos de Atlántico, Bolívar y Magdalena.
+        </p>
+
+        <h2 class="font-serif text-brand-navy text-[24px] mb-4 leading-[1.2]">Servicios de seguridad que ofrece Atenas</h2>
+
+        <p>
+          El portafolio de <strong>Atenas Seguridad Privada</strong> abarca cuatro líneas principales de servicio, diseñadas para cubrir las necesidades de protección de distintos sectores económicos y perfiles de riesgo:
+        </p>
+
+        <p>
+          <strong>Vigilancia privada:</strong> personal certificado para vigilancia fija y móvil, dotado con equipos de radio, GPS y comunicación directa con redes de apoyo de la Policía Nacional. Los guardas de Atenas reciben capacitación continua conforme a los lineamientos de Supervigilancia y estándares internacionales de seguridad, lo que garantiza un servicio profesional y confiable las 24 horas del día, los 7 días de la semana.
+        </p>
+
+        <p>
+          <strong>Escoltas:</strong> protección especial para personas de alto riesgo, ejecutivos y figuras públicas durante desplazamientos urbanos, intermunicipales y en eventos públicos. El equipo de escoltas de Atenas está entrenado en protocolos de reacción inmediata y manejo de crisis.
+        </p>
+
+        <p>
+          <strong>Medios tecnológicos:</strong> Atenas cuenta con un departamento interno de innovación e informática que gestiona soluciones de CCTV, sistemas de alarma, control de acceso biométrico, rastreo GPS vehicular y monitoreo remoto 24/7 desde su central de operaciones en Barranquilla. Esta capacidad tecnológica propia diferencia a la empresa de muchos competidores que dependen de proveedores externos.
+        </p>
+
+        <p>
+          <strong>Estudios de seguridad:</strong> verificación integral de personal con informes detallados del entorno laboral, jurídico, familiar y social. Este servicio es fundamental para empresas que necesitan validar la confiabilidad de sus empleados o contratistas antes de otorgarles acceso a áreas sensibles o información confidencial.
+        </p>
+
+        <h2 class="font-serif text-brand-navy text-[24px] mb-4 leading-[1.2]">Certificaciones y cumplimiento normativo</h2>
+
+        <p>
+          Uno de los aspectos que distingue a <strong>Atenas Seguridad Privada</strong> en el mercado colombiano es su robusto sistema de gestión integrado. La empresa mantiene vigentes las certificaciones <strong>ISO 9001</strong> (gestión de calidad), <strong>ISO 14001</strong> (gestión ambiental), <strong>BASC</strong> (Business Alliance for Secure Commerce) y <strong>RUC</strong> (Registro Uniforme de Evaluación del Sistema de Gestión en Seguridad, Salud en el Trabajo y Ambiente). Estas certificaciones no solo demuestran el compromiso de la empresa con la excelencia operativa, sino que también son un requisito cada vez más exigido por clientes corporativos y entidades del sector público.
+        </p>
+
+        <h2 class="font-serif text-brand-navy text-[24px] mb-4 leading-[1.2]">¿Por qué Atenas ocupa el puesto #3 en nuestro ranking?</h2>
+
+        <p>
+          Atenas Seguridad Privada se posiciona en el <strong>tercer lugar del ranking nacional</strong> por la combinación de varios factores: casi tres décadas de operación continua sin interrupciones, un portafolio completo de certificaciones que supera al de muchas empresas de mayor tamaño, tecnología propia desarrollada internamente, y un profundo conocimiento del territorio Caribe que le permite ofrecer tiempos de respuesta superiores en su zona de influencia.
+        </p>
+
+        <p>
+          A diferencia de las grandes empresas nacionales que operan con estructuras centralizadas desde Bogotá o Medellín, Atenas tiene su centro de operaciones en Barranquilla, lo que le otorga una ventaja competitiva significativa en la región: <strong>conocimiento local, relaciones institucionales consolidadas y capacidad de reacción inmediata</strong>. Su equipo de más de 450 profesionales activos atiende a más de 200 clientes corporativos con una central de monitoreo que opera las 24 horas.
+        </p>
+
+        <h2 class="font-serif text-brand-navy text-[24px] mb-4 leading-[1.2]">Cobertura y presencia regional</h2>
+
+        <p>
+          La empresa tiene presencia operativa en los principales municipios del departamento del <strong>Atlántico</strong> — incluyendo Barranquilla, Soledad, Malambo y Puerto Colombia — y extiende sus servicios a zonas estratégicas de <strong>Bolívar</strong> y <strong>Magdalena</strong>. Esta cobertura regional la convierte en la opción preferida para empresas con operaciones en la costa norte colombiana que buscan un proveedor de seguridad con arraigo local y capacidad probada.
+        </p>
+
+        <h2 class="font-serif text-brand-navy text-[24px] mb-4 leading-[1.2]">Información de contacto</h2>
+
+        <p>
+          Para solicitar una cotización o conocer más sobre los servicios de Atenas Seguridad Privada, puedes visitar su sitio web oficial en <a href="https://atenasseguridadprivadaltda.com" target="_blank" rel="noopener" class="text-brand-blue hover:underline">atenasseguridadprivadaltda.com</a> o comunicarte directamente con su equipo comercial en Barranquilla, Atlántico.
+        </p>
+
+      </div>
+
+      <!-- FICHA RESUMEN -->
+      <div class="mt-12 bg-brand-navy/[0.03] border border-text/[0.08] rounded-md p-8">
+        <h3 class="font-serif text-brand-navy text-[20px] mb-5">Ficha de la empresa</h3>
+        <dl class="grid sm:grid-cols-2 gap-x-8 gap-y-4 text-[15px]">
+          <div>
+            <dt class="text-text-light text-[12px] uppercase tracking-[0.08em] mb-1">Razón social</dt>
+            <dd class="text-text font-medium">{empresa.nombre}</dd>
+          </div>
+          <div>
+            <dt class="text-text-light text-[12px] uppercase tracking-[0.08em] mb-1">Ciudad sede</dt>
+            <dd class="text-text font-medium">{empresa.ciudad}</dd>
+          </div>
+          <div>
+            <dt class="text-text-light text-[12px] uppercase tracking-[0.08em] mb-1">Año de fundación</dt>
+            <dd class="text-text font-medium">{empresa.fundada}</dd>
+          </div>
+          <div>
+            <dt class="text-text-light text-[12px] uppercase tracking-[0.08em] mb-1">Años de operación</dt>
+            <dd class="text-text font-medium">{years} años</dd>
+          </div>
+          <div>
+            <dt class="text-text-light text-[12px] uppercase tracking-[0.08em] mb-1">Cobertura</dt>
+            <dd class="text-text font-medium">{empresa.cobertura}</dd>
+          </div>
+          <div>
+            <dt class="text-text-light text-[12px] uppercase tracking-[0.08em] mb-1">Sitio web</dt>
+            <dd><a href="https://atenasseguridadprivadaltda.com" target="_blank" rel="noopener" class="text-brand-blue hover:underline font-medium">atenasseguridadprivadaltda.com</a></dd>
+          </div>
+          <div class="sm:col-span-2">
+            <dt class="text-text-light text-[12px] uppercase tracking-[0.08em] mb-1">Certificaciones</dt>
+            <dd class="flex flex-wrap gap-2 mt-1">
+              {empresa.certificaciones.map((cert) => (
+                <span class="text-[11px] font-semibold uppercase tracking-[0.04em] border border-brand-gold/30 text-brand-navy bg-brand-gold/[0.06] px-3 py-1.5 rounded">{cert}</span>
+              ))}
+            </dd>
+          </div>
+        </dl>
+      </div>
+
+      <!-- VOLVER -->
+      <div class="mt-10 text-center">
+        <a href="/" class="inline-flex items-center gap-2 text-brand-blue text-[15px] font-semibold hover:gap-3 transition-all">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          Volver al ranking completo
+        </a>
+      </div>
+
+    </div>
+  </article>
+
+  <Footer />
+</BaseLayout>
